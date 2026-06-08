@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { Marquee } from "@/components/Marquee";
 import { Reveal } from "@/components/Reveal";
+import { Tilt3D, Magnetic, Parallax } from "@/components/Tilt3D";
 import logoLight from "@/assets/logo-light.png.asset.json";
 import cert from "@/assets/cert-white.png.asset.json";
 
@@ -36,12 +37,12 @@ function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
       <div className="bg-grid absolute inset-0 opacity-40" />
-      <div className="absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[140px] animate-pulse-glow" />
-      <div className="absolute -right-40 bottom-0 h-[600px] w-[600px] rounded-full bg-accent/10 blur-[160px] animate-pulse-glow" style={{ animationDelay: "2s" }} />
+      <Parallax speed={0.08} className="absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[140px] animate-pulse-glow" />
+      <Parallax speed={-0.1} className="absolute -right-40 bottom-0 h-[600px] w-[600px] rounded-full bg-accent/10 blur-[160px] animate-pulse-glow" />
 
-      <div className="absolute right-10 top-1/3 hidden opacity-30 lg:block">
-        <img src={logoLight.url} alt="" className="h-[500px] w-auto animate-float-slow" />
-      </div>
+      <Parallax speed={0.18} className="absolute right-10 top-1/3 hidden opacity-30 lg:block">
+        <img src={logoLight.url} alt="" className="h-[500px] w-auto animate-float-slow [transform:perspective(1200px)_rotateY(-12deg)_rotateX(6deg)]" />
+      </Parallax>
 
       <div className="relative mx-auto w-full max-w-7xl px-6">
         <Reveal>
@@ -66,13 +67,17 @@ function Hero() {
 
         <Reveal delay={300}>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]">
-              Start a project
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-            <Link to="/work" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
-              See our work
-            </Link>
+            <Magnetic>
+              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]">
+                Start a project
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </Magnetic>
+            <Magnetic strength={0.25}>
+              <Link to="/work" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
+                See our work
+              </Link>
+            </Magnetic>
           </div>
         </Reveal>
 
@@ -132,13 +137,15 @@ function ServicesPreview() {
       <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal key={s.n} delay={i * 60}>
-            <div className="group relative h-full overflow-hidden bg-card p-8 transition-colors hover:bg-secondary" data-cursor="hover">
-              <div className="font-mono text-xs text-primary">{s.n}</div>
-              <h3 className="mt-6 font-display text-2xl">{s.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
-              <div className="mt-8 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all group-hover:gradient-cyan group-hover:text-primary-foreground">→</div>
-              <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-primary/20 opacity-0 blur-3xl transition-opacity group-hover:opacity-100" />
-            </div>
+            <Tilt3D max={8} scale={1.01} className="h-full">
+              <div className="group relative h-full overflow-hidden bg-card p-8 transition-colors hover:bg-secondary" data-cursor="hover">
+                <div className="font-mono text-xs text-primary">{s.n}</div>
+                <h3 className="mt-6 font-display text-2xl" style={{ transform: "translateZ(30px)" }}>{s.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+                <div className="mt-8 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all group-hover:gradient-cyan group-hover:text-primary-foreground" style={{ transform: "translateZ(50px)" }}>→</div>
+                <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-primary/20 opacity-0 blur-3xl transition-opacity group-hover:opacity-100" />
+              </div>
+            </Tilt3D>
           </Reveal>
         ))}
       </div>
@@ -213,10 +220,11 @@ function WorkPreview() {
       <div className="grid gap-6 md:grid-cols-3">
         {works.map((w, i) => (
           <Reveal key={w.name} delay={i * 100}>
-            <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-border" data-cursor="hover">
+            <Tilt3D max={10} className="rounded-2xl">
+            <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-border glow-ring" data-cursor="hover">
               <div className={`absolute inset-0 bg-gradient-to-br ${w.color}`} />
               <div className="bg-grid absolute inset-0 opacity-40" />
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 flex flex-col justify-end p-6" style={{ transform: "translateZ(40px)" }}>
                 <p className="font-mono text-xs uppercase tracking-widest text-primary">{w.tag}</p>
                 <h3 className="mt-2 font-display text-3xl">{w.name}</h3>
               </div>
@@ -227,6 +235,7 @@ function WorkPreview() {
                 <span className="mt-6 inline-flex items-center gap-2 text-primary">View case study →</span>
               </div>
             </div>
+            </Tilt3D>
           </Reveal>
         ))}
       </div>
@@ -267,9 +276,11 @@ function CTA() {
             <p className="mt-6 max-w-xl text-muted-foreground">
               Let's craft an experience that captivates, converts, and creates a lasting brand legacy.
             </p>
-            <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 font-semibold text-primary-foreground">
-              Start a project →
-            </Link>
+            <Magnetic>
+              <Link to="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 font-semibold text-primary-foreground transition-transform hover:scale-[1.04]">
+                Start a project →
+              </Link>
+            </Magnetic>
           </Reveal>
         </div>
       </div>
