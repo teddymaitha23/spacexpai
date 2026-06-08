@@ -1,4 +1,4 @@
-import { useRef, type ReactNode, type MouseEvent } from "react";
+import { useEffect, useRef, type ReactNode, type MouseEvent, type RefObject } from "react";
 
 type Props = {
   children: ReactNode;
@@ -82,13 +82,7 @@ export function Magnetic({ children, className = "", strength = 0.35 }: { childr
 
 export function Parallax({ children, speed = 0.15, className = "" }: { children: ReactNode; speed?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-
-  // imperative scroll listener
-  if (typeof window !== "undefined") {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useScrollParallax(ref, speed);
-  }
-
+  useScrollParallax(ref, speed);
   return (
     <div ref={ref} className={className} style={{ willChange: "transform" }}>
       {children}
@@ -96,9 +90,9 @@ export function Parallax({ children, speed = 0.15, className = "" }: { children:
   );
 }
 
-import { useEffect } from "react";
-function useScrollParallax(ref: React.RefObject<HTMLDivElement | null>, speed: number) {
+function useScrollParallax(ref: RefObject<HTMLDivElement | null>, speed: number) {
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const el = ref.current;
     if (!el) return;
     let raf = 0;
