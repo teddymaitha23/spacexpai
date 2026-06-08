@@ -80,7 +80,7 @@ export function Magnetic({ children, className = "", strength = 0.35 }: { childr
   );
 }
 
-export function Parallax({ children, speed = 0.15, className = "" }: { children: ReactNode; speed?: number; className?: string }) {
+export function Parallax({ children, speed = 0.15, className = "" }: { children?: ReactNode; speed?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useScrollParallax(ref, speed);
   return (
