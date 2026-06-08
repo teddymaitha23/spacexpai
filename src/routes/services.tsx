@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
+import { Tilt3D, Magnetic } from "@/components/Tilt3D";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -95,18 +96,22 @@ function ServicesPage() {
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {process.map((p, i) => (
             <Reveal key={p.n} delay={i * 100}>
-              <div className="relative h-full rounded-2xl border border-border bg-card/40 p-6 backdrop-blur">
-                <div className="font-mono text-xs text-primary">{p.n}</div>
-                <h3 className="mt-4 font-display text-xl">{p.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-              </div>
+              <Tilt3D max={10} className="h-full rounded-2xl">
+                <div className="relative h-full rounded-2xl border border-border bg-card/40 p-6 backdrop-blur glow-ring" data-cursor="hover">
+                  <div className="font-mono text-xs text-primary" style={{ transform: "translateZ(30px)" }}>{p.n}</div>
+                  <h3 className="mt-4 font-display text-xl" style={{ transform: "translateZ(40px)" }}>{p.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+                </div>
+              </Tilt3D>
             </Reveal>
           ))}
         </div>
         <div className="mt-16 text-center">
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 font-semibold text-primary-foreground">
-            Brief us on your project →
-          </Link>
+          <Magnetic>
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 font-semibold text-primary-foreground transition-transform hover:scale-[1.04]">
+              Brief us on your project →
+            </Link>
+          </Magnetic>
         </div>
       </section>
     </>

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
+import { Tilt3D, Magnetic } from "@/components/Tilt3D";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -41,14 +42,15 @@ function WorkPage() {
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={i * 60}>
-              <div className="group relative aspect-[5/4] overflow-hidden rounded-2xl border border-border" data-cursor="hover">
+              <Tilt3D max={8} className="rounded-2xl">
+              <div className="group relative aspect-[5/4] overflow-hidden rounded-2xl border border-border glow-ring" data-cursor="hover">
                 <div className={`absolute inset-0 bg-gradient-to-br ${p.color}`} />
                 <div className="bg-grid absolute inset-0 opacity-40" />
-                <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6">
+                <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6" style={{ transform: "translateZ(30px)" }}>
                   <span className="font-mono text-xs uppercase tracking-widest text-foreground/70">{p.year}</span>
                   <span className="font-mono text-xs uppercase tracking-widest text-foreground/70">[0{i + 1}]</span>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-6">
+                <div className="absolute inset-x-0 bottom-0 p-6" style={{ transform: "translateZ(50px)" }}>
                   <h3 className="font-display text-3xl md:text-5xl">{p.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{p.tag}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -61,18 +63,21 @@ function WorkPage() {
                 </div>
                 <div className="absolute inset-0 translate-y-full bg-background/70 backdrop-blur transition-transform duration-500 group-hover:translate-y-0" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <span className="inline-flex h-20 w-20 items-center justify-center rounded-full gradient-cyan text-primary-foreground">View →</span>
+                  <span className="inline-flex h-20 w-20 items-center justify-center rounded-full gradient-cyan text-primary-foreground animate-pulse-glow">View →</span>
                 </div>
               </div>
+              </Tilt3D>
             </Reveal>
           ))}
         </div>
 
         <div className="mt-24 text-center">
           <p className="font-display text-2xl text-muted-foreground">More case studies on request.</p>
-          <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 font-semibold text-primary-foreground">
-            Request portfolio →
-          </Link>
+          <Magnetic>
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full gradient-cyan px-7 py-3.5 font-semibold text-primary-foreground transition-transform hover:scale-[1.04]">
+              Request portfolio →
+            </Link>
+          </Magnetic>
         </div>
       </section>
     </>
