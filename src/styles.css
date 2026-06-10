@@ -196,3 +196,30 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
 }
+
+.reveal-init {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(10px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+.nav-init {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: nav-enter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes nav-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

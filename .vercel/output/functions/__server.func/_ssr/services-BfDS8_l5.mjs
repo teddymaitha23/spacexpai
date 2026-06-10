@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { R as Reveal } from "./Reveal-_jqFMCBK.mjs";
-import { T as Tilt3D } from "./Tilt3D-C8zXE9RS.mjs";
+import { R as Reveal } from "./Reveal-KNND-Aem.mjs";
+import { T as Tilt3D } from "./Tilt3D-CXV6RNZu.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -11,9 +11,6 @@ import "node:stream/web";
 import "node:stream";
 import "../_libs/react-dom.mjs";
 import "../_libs/isbot.mjs";
-import "../_libs/framer-motion.mjs";
-import "../_libs/motion-dom.mjs";
-import "../_libs/motion-utils.mjs";
 const groups = [{
   cat: "Brand & Identity",
   items: [{

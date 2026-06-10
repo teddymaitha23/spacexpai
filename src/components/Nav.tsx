@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 
 const links = [
   { to: "/", label: "Home" },
@@ -11,11 +10,8 @@ const links = [
 
 export function Nav() {
   return (
-    <motion.header
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 pt-6"
+    <header
+      className="nav-init fixed top-0 left-0 right-0 z-50 px-4 pt-6"
     >
       <div className="glass-panel-light shadow-soft mx-auto flex max-w-7xl items-center justify-between rounded-full px-8 py-4">
         <Link to="/" className="flex items-center gap-3">
@@ -47,6 +43,6 @@ export function Nav() {
           <span className="transition-transform group-hover:translate-x-1">→</span>
         </Link>
       </div>
-    </motion.header>
+    </header>
   );
 }

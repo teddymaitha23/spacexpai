@@ -1,8 +1,5 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { R as Reveal } from "./Reveal-_jqFMCBK.mjs";
-import "../_libs/framer-motion.mjs";
-import "../_libs/motion-dom.mjs";
-import "../_libs/motion-utils.mjs";
+import { R as Reveal } from "./Reveal-KNND-Aem.mjs";
 const team = [{
   name: "George Andiki",
   role: "Founder & Creative Director",

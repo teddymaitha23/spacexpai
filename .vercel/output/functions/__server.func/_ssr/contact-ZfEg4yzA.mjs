@@ -1,8 +1,5 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { R as Reveal } from "./Reveal-_jqFMCBK.mjs";
-import "../_libs/framer-motion.mjs";
-import "../_libs/motion-dom.mjs";
-import "../_libs/motion-utils.mjs";
+import { R as Reveal } from "./Reveal-KNND-Aem.mjs";
 function ContactPage() {
   const [sent, setSent] = reactExports.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [

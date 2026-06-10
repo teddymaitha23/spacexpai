@@ -19,10 +19,5 @@ export default defineConfig({
       serverDir: ".vercel/output/functions/__server.func",
       publicDir: ".vercel/output/static",
     }
-  },
-  vite: {
-    ssr: {
-      noExternal: ['framer-motion']
-    }
   }
 });

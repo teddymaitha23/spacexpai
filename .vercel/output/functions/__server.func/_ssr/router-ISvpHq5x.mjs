@@ -2,7 +2,6 @@ import { Q as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { Q as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
 import { c as createRouter, a as createRootRouteWithContext, u as useRouter, L as Link, O as Outlet, H as HeadContent, S as Scripts, b as createFileRoute, l as lazyRouteComponent } from "../_libs/tanstack__react-router.mjs";
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { m as motion } from "../_libs/framer-motion.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -12,9 +11,7 @@ import "node:stream/web";
 import "node:stream";
 import "../_libs/react-dom.mjs";
 import "../_libs/isbot.mjs";
-import "../_libs/motion-dom.mjs";
-import "../_libs/motion-utils.mjs";
-const appCss = "/assets/styles-CLH58SFe.css";
+const appCss = "/assets/styles-32_C2I16.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -40,12 +37,9 @@ const links = [
 ];
 function Nav() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    motion.header,
+    "header",
     {
-      initial: { y: -50, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-      className: "fixed top-0 left-0 right-0 z-50 px-4 pt-6",
+      className: "nav-init fixed top-0 left-0 right-0 z-50 px-4 pt-6",
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-panel-light shadow-soft mx-auto flex max-w-7xl items-center justify-between rounded-full px-8 py-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-xl font-bold tracking-tight text-primary", children: "SPACE XP" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden items-center gap-4 md:flex", children: links.map((l) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -279,7 +273,7 @@ function RootComponent() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
-const $$splitComponentImporter$4 = () => import("./work-CbewZZVX.mjs");
+const $$splitComponentImporter$4 = () => import("./work-DelKB9v-.mjs");
 const Route$5 = createFileRoute("/work")({
   head: () => ({
     meta: [{
@@ -320,7 +314,7 @@ ${urls}
     }
   }
 });
-const $$splitComponentImporter$3 = () => import("./services-D1UMqNLt.mjs");
+const $$splitComponentImporter$3 = () => import("./services-BfDS8_l5.mjs");
 const Route$3 = createFileRoute("/services")({
   head: () => ({
     meta: [{
@@ -332,7 +326,7 @@ const Route$3 = createFileRoute("/services")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./contact-QWFGPmRj.mjs");
+const $$splitComponentImporter$2 = () => import("./contact-ZfEg4yzA.mjs");
 const Route$2 = createFileRoute("/contact")({
   head: () => ({
     meta: [{
@@ -344,7 +338,7 @@ const Route$2 = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./about-g6Itf64l.mjs");
+const $$splitComponentImporter$1 = () => import("./about-BzMVNLpq.mjs");
 const Route$1 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -362,7 +356,7 @@ const Route$1 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-BF8h61RU.mjs");
+const $$splitComponentImporter = () => import("./index-CD1H3vRI.mjs");
 const Route = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });
