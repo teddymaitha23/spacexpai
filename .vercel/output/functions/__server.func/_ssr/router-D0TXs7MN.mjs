@@ -2,6 +2,7 @@ import { Q as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { Q as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
 import { c as createRouter, a as createRootRouteWithContext, u as useRouter, L as Link, O as Outlet, H as HeadContent, S as Scripts, b as createFileRoute, l as lazyRouteComponent } from "../_libs/tanstack__react-router.mjs";
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
+import { m as motion } from "../_libs/framer-motion.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -11,7 +12,9 @@ import "node:stream/web";
 import "node:stream";
 import "../_libs/react-dom.mjs";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-BFsDqTUM.css";
+import "../_libs/motion-dom.mjs";
+import "../_libs/motion-utils.mjs";
+const appCss = "/assets/styles-CLH58SFe.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -36,73 +39,81 @@ const links = [
   { to: "/contact", label: "Contact" }
 ];
 function Nav() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "fixed top-0 left-0 right-0 z-50 px-4 pt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-panel mx-auto flex max-w-7xl items-center justify-between rounded-full px-6 py-3", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-lg font-bold tracking-wide text-foreground", children: "SPACE XP" }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden items-center gap-2 md:flex", children: links.map((l) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Link,
-      {
-        to: l.to,
-        activeOptions: { exact: l.to === "/" },
-        activeProps: { className: "text-primary bg-primary/10" },
-        inactiveProps: {
-          className: "text-muted-foreground hover:text-foreground hover:bg-white/5"
-        },
-        className: "rounded-full px-5 py-2 text-sm font-medium transition-all",
-        children: l.label
-      },
-      l.to
-    )) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      Link,
-      {
-        to: "/contact",
-        className: "group relative inline-flex items-center gap-2 overflow-hidden rounded-full gradient-brand px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-[0_0_20px_var(--color-primary)]",
-        children: [
-          "Start a project",
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "transition-transform group-hover:translate-x-1", children: "→" })
-        ]
-      }
-    )
-  ] }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.header,
+    {
+      initial: { y: -50, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      className: "fixed top-0 left-0 right-0 z-50 px-4 pt-6",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-panel-light shadow-soft mx-auto flex max-w-7xl items-center justify-between rounded-full px-8 py-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-xl font-bold tracking-tight text-primary", children: "SPACE XP" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden items-center gap-4 md:flex", children: links.map((l) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Link,
+          {
+            to: l.to,
+            activeOptions: { exact: l.to === "/" },
+            activeProps: { className: "text-primary font-bold" },
+            inactiveProps: {
+              className: "text-muted-foreground hover:text-primary transition-colors"
+            },
+            className: "text-sm tracking-wide transition-all",
+            children: l.label
+          },
+          l.to
+        )) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Link,
+          {
+            to: "/contact",
+            className: "group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-2.5 text-sm font-semibold text-primary-foreground shadow-elegant transition-all hover:bg-accent hover:text-accent-foreground",
+            children: [
+              "Start a project",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "transition-transform group-hover:translate-x-1", children: "→" })
+            ]
+          }
+        )
+      ] })
+    }
+  );
 }
 function Footer() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "relative mt-32 overflow-hidden border-t border-border bg-background", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-grid-dots absolute inset-0 opacity-20" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -bottom-64 -right-64 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[150px] mix-blend-screen" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative mx-auto max-w-7xl px-6 py-20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid gap-12 md:grid-cols-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-grid-dots-light absolute inset-0 opacity-40" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative mx-auto max-w-7xl px-8 py-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid gap-16 md:grid-cols-3", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-4xl text-gradient", children: "Let's build the future." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed", children: "A creative agency where imagination meets AI-augmented execution." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-4xl text-primary tracking-tight", children: "Let's build the future." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed", children: "A minimalist creative agency where imagination meets AI-augmented execution." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Link,
           {
             to: "/contact",
-            className: "mt-8 inline-flex items-center gap-2 rounded-full gradient-brand px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-[0_0_20px_var(--color-primary)]",
+            className: "mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:bg-accent hover:text-accent-foreground",
             children: "Start a project →"
           }
         )
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-8 text-sm", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs uppercase tracking-widest text-muted-foreground", children: "Explore" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "mt-4 space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/services", className: "hover:text-primary", children: "Services" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/work", className: "hover:text-primary", children: "Work" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/about", className: "hover:text-primary", children: "About" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", className: "hover:text-primary", children: "Contact" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6", children: "Explore" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/services", className: "hover:text-primary transition-colors", children: "Services" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/work", className: "hover:text-primary transition-colors", children: "Work" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/about", className: "hover:text-primary transition-colors", children: "About" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", className: "hover:text-primary transition-colors", children: "Contact" }) })
           ] })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs uppercase tracking-widest text-muted-foreground", children: "Contact" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "mt-4 space-y-2 text-muted-foreground", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "hello@spacexp.studio" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "+1 (212) 555‑0147" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "@SpaceXP_Studio" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6", children: "Contact" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-4 text-primary", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "hover:text-accent transition-colors cursor-pointer", children: "hello@spacexp.studio" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "hover:text-accent transition-colors cursor-pointer", children: "+1 (212) 555‑0147" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "hover:text-accent transition-colors cursor-pointer", children: "@SpaceXP_Studio" })
           ] })
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start justify-between gap-6 md:items-end", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rounded-full border border-border bg-white/5 px-6 py-2 backdrop-blur", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-lg font-bold tracking-widest text-primary", children: "SPACE XP" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rounded-full border border-border bg-white px-6 py-2 shadow-soft", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-lg font-bold tracking-widest text-primary", children: "SPACE XP" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-mono text-xs text-muted-foreground", children: [
           "© ",
           (/* @__PURE__ */ new Date()).getFullYear(),
@@ -268,7 +279,7 @@ function RootComponent() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
-const $$splitComponentImporter$4 = () => import("./work-7DxJglk5.mjs");
+const $$splitComponentImporter$4 = () => import("./work-CbewZZVX.mjs");
 const Route$5 = createFileRoute("/work")({
   head: () => ({
     meta: [{
@@ -309,7 +320,7 @@ ${urls}
     }
   }
 });
-const $$splitComponentImporter$3 = () => import("./services-BZg3w4xi.mjs");
+const $$splitComponentImporter$3 = () => import("./services-D1UMqNLt.mjs");
 const Route$3 = createFileRoute("/services")({
   head: () => ({
     meta: [{
@@ -321,7 +332,7 @@ const Route$3 = createFileRoute("/services")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./contact-ztMW5iA_.mjs");
+const $$splitComponentImporter$2 = () => import("./contact-QWFGPmRj.mjs");
 const Route$2 = createFileRoute("/contact")({
   head: () => ({
     meta: [{
@@ -333,7 +344,7 @@ const Route$2 = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./about-BpBF3eEU.mjs");
+const $$splitComponentImporter$1 = () => import("./about-g6Itf64l.mjs");
 const Route$1 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -351,16 +362,8 @@ const Route$1 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-BoZyung6.mjs");
+const $$splitComponentImporter = () => import("./index-BF8h61RU.mjs");
 const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [{
-      title: "Space XP — AI Creative Agency"
-    }, {
-      name: "description",
-      content: "Shaping the future of digital experiences. Branding, web, app, marketing & art direction powered by AI."
-    }]
-  }),
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });
 const WorkRoute = Route$5.update({

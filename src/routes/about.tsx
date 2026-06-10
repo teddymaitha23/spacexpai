@@ -21,109 +21,102 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "George Andiki", role: "Founder & Creative Director" },
-  { name: "Jordan Kim", role: "Head of Strategy & Operations" },
-  { name: "Maya Patel", role: "Lead Digital Developer" },
-  { name: "Chris Morgan", role: "Brand Identity Lead" },
+  { name: "George Andiki", role: "Founder & Creative Director", img: "bg-stone-200" },
+  { name: "Jordan Kim", role: "Head of Strategy & Operations", img: "bg-neutral-200" },
+  { name: "Maya Patel", role: "Lead Digital Developer", img: "bg-zinc-200" },
+  { name: "Chris Morgan", role: "Brand Identity Lead", img: "bg-gray-200" },
 ];
 
 const milestones = [
   {
     n: "01",
     t: "Agency Founded",
-    d: "Launched as a boutique studio with a focus on design excellence.",
+    d: "Launched as a boutique studio with a focus on pristine design excellence.",
   },
   {
     n: "02",
-    t: "Global Brand Partnerships",
-    d: "Scaled rapidly through client referrals and word-of-mouth.",
+    t: "Global Partnerships",
+    d: "Scaled rapidly through client referrals and a reputation for minimalism.",
   },
   {
     n: "03",
-    t: "Award-Winning Campaigns",
-    d: "Recognized for pioneering digital design across markets.",
+    t: "Award-Winning",
+    d: "Recognized for pioneering clean, AI-augmented digital design across markets.",
   },
   {
     n: "04",
-    t: "Enterprise-Scale Delivery",
-    d: "Trusted by enterprises for mission-critical brand systems.",
+    t: "Enterprise Delivery",
+    d: "Trusted by visionaries for mission-critical brand architecture.",
   },
 ];
 
 function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-40">
-        <div className="bg-grid absolute inset-0 opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-12">
+      <section className="relative overflow-hidden pt-40 pb-20">
+        <div className="bg-grid-light absolute inset-0 opacity-40" />
+        <div className="relative mx-auto max-w-7xl px-8 pb-12">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">— About</p>
-            <h1 className="mt-4 max-w-5xl font-display text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
-              A creative studio where{" "}
-              <span className="text-gradient">imagination meets execution.</span>
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">— About</p>
+            <h1 className="max-w-5xl font-display text-5xl leading-[1.05] md:text-7xl lg:text-8xl text-primary font-medium tracking-tight">
+              A studio where <br /> <span className="text-muted-foreground italic font-light">imagination meets execution.</span>
             </h1>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-8 py-20">
+        <div className="grid gap-16 md:grid-cols-2">
           <Reveal>
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">Vision</p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl">
-              To be the most trusted creative partner for brands seeking transformative digital and
-              visual identities.
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Vision</p>
+            <h2 className="font-display text-3xl md:text-4xl text-primary font-light leading-snug">
+              To be the most trusted creative partner for brands seeking pristine, transformative digital and visual identities.
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">Mission</p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl">
-              To harness research, craftsmanship and AI to create refined identities, websites,
-              campaigns, and experiences that drive lasting growth.
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Mission</p>
+            <h2 className="font-display text-3xl md:text-4xl text-primary font-light leading-snug">
+              To harness restraint, craftsmanship, and technology to create refined experiences that drive lasting impact.
             </h2>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-8 py-32 bg-secondary/30 relative">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">— Journey</p>
-          <h2 className="mt-3 font-display text-4xl md:text-6xl">
-            A journey of <span className="text-gradient">achievements.</span>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">— Journey</p>
+          <h2 className="font-display text-4xl md:text-6xl text-primary tracking-tight">
+            A journey of <span className="text-muted-foreground italic font-light">refinement.</span>
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {milestones.map((m, i) => (
             <Reveal key={m.n} delay={i * 100}>
-              <div className="h-full rounded-2xl border border-border bg-card/40 p-6 backdrop-blur">
-                <div className="font-mono text-xs text-primary">{m.n}</div>
-                <h3 className="mt-3 font-display text-xl">{m.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{m.d}</p>
+              <div className="h-full rounded-sm bg-white p-8 shadow-soft transition-all hover:shadow-elegant">
+                <div className="font-mono text-xs font-bold text-primary mb-6">{m.n}</div>
+                <h3 className="font-display text-2xl text-primary mb-3">{m.t}</h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed">{m.d}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-8 py-32">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">— Team</p>
-          <h2 className="mt-3 font-display text-4xl md:text-6xl">
-            Meet the <span className="text-gradient">crew.</span>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">— Team</p>
+          <h2 className="font-display text-4xl md:text-6xl text-primary tracking-tight">
+            Meet the <span className="text-muted-foreground italic font-light">crew.</span>
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {team.map((m, i) => (
-            <Reveal key={m.name} delay={i * 80}>
-              <div
-                className="group relative aspect-[3/4] overflow-hidden bg-card"
-                data-cursor="hover"
-              >
-                <div className="bg-grid absolute inset-0 opacity-30" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="font-display text-2xl">{m.name}</h3>
-                  <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <Reveal key={m.name} delay={i * 100}>
+              <div className="group overflow-hidden bg-white shadow-soft transition-all duration-500 hover:shadow-elegant">
+                <div className={`aspect-[4/5] w-full ${m.img} opacity-80 transition-transform duration-700 group-hover:scale-105`} />
+                <div className="p-6 bg-white relative z-10">
+                  <h3 className="font-display text-xl text-primary">{m.name}</h3>
+                  <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mt-2">
                     {m.role}
                   </p>
                 </div>
@@ -133,14 +126,14 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-32 text-center">
+      <section className="mx-auto max-w-7xl px-8 py-40 text-center">
         <Reveal>
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white/5 backdrop-blur">
-            <span className="font-display text-2xl font-bold text-primary">✦</span>
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-secondary shadow-soft">
+            <span className="font-display text-2xl font-light text-primary">✦</span>
           </div>
-          <p className="mx-auto mt-8 max-w-3xl font-display text-3xl md:text-5xl">
-            Together, we grow stronger communities and build{" "}
-            <span className="text-gradient">meaningful connections.</span>
+          <p className="mx-auto mt-12 max-w-3xl font-display text-4xl md:text-5xl lg:text-6xl text-primary leading-tight tracking-tight">
+            Together, we build <br />
+            <span className="text-muted-foreground italic font-light">meaningful connections.</span>
           </p>
         </Reveal>
       </section>

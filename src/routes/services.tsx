@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { Tilt3D, Magnetic, Parallax } from "@/components/Tilt3D";
+import { Tilt3D, Parallax } from "@/components/Tilt3D";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -93,51 +93,46 @@ function ServicesPage() {
   return (
     <>
       <section className="relative flex min-h-[70vh] items-center overflow-hidden pt-20">
-        <div className="bg-grid-dots absolute inset-0 opacity-20" />
-        <Parallax
-          speed={-0.1}
-          className="absolute right-0 top-1/4 h-[800px] w-[800px] translate-x-1/3 rounded-full bg-primary/10 blur-[200px] mix-blend-screen"
-        />
+        <div className="bg-grid-light absolute inset-0 opacity-40" />
 
-        <div className="relative mx-auto w-full max-w-7xl px-6">
+        <div className="relative mx-auto w-full max-w-7xl px-8">
           <Reveal>
-            <p className="font-mono text-xs font-bold uppercase tracking-widest text-primary">
+            <p className="font-mono text-xs font-medium uppercase tracking-widest text-muted-foreground mb-6">
               — Services
             </p>
-            <h1 className="mt-6 max-w-5xl font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
-              A creative stack <br /> for <span className="text-gradient">every ambition.</span>
+            <h1 className="max-w-5xl font-display text-5xl font-medium leading-[1.05] tracking-tight text-primary md:text-7xl lg:text-8xl">
+              A creative stack <br /> for <span className="text-muted-foreground italic font-light">every ambition.</span>
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground font-light">
               We provide end-to-end capabilities across brand, digital, and AI. A unified team
-              delivering cohesive, premium experiences.
+              delivering cohesive, pristine experiences.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-8 py-20">
         <div className="space-y-32">
           {groups.map((g, gi) => (
             <Reveal key={g.cat} delay={gi * 100}>
               <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
                 <div>
-                  <p className="font-mono text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                  <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
                     [{String(gi + 1).padStart(2, "0")}]
                   </p>
-                  <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">{g.cat}</h2>
+                  <h2 className="font-display text-4xl text-primary md:text-5xl">{g.cat}</h2>
                 </div>
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className="grid gap-8 md:grid-cols-3">
                   {g.items.map((it) => (
                     <div
                       key={it.t}
-                      className="glass-panel group relative overflow-hidden rounded-3xl p-8"
-                      data-cursor="hover"
+                      className="group relative overflow-hidden bg-white shadow-soft transition-all duration-500 hover:shadow-elegant p-8"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                       <div className="relative z-10">
-                        <h3 className="font-display text-xl font-bold">{it.t}</h3>
-                        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{it.d}</p>
+                        <h3 className="font-display text-2xl text-primary">{it.t}</h3>
+                        <p className="mt-4 text-sm leading-relaxed text-muted-foreground font-light">{it.d}</p>
                       </div>
+                      <div className="absolute inset-0 border-b-4 border-transparent transition-colors duration-500 group-hover:border-accent" />
                     </div>
                   ))}
                 </div>
@@ -147,41 +142,39 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="relative mx-auto mt-20 max-w-7xl px-6 py-32">
+      <section className="relative mx-auto mt-20 max-w-7xl px-8 py-32 bg-secondary/30">
         <Reveal>
-          <p className="font-mono text-xs font-bold uppercase tracking-widest text-primary">
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
             — Process
           </p>
-          <h2 className="mt-4 font-display text-4xl font-bold md:text-6xl">
-            How we <span className="text-gradient">operate.</span>
+          <h2 className="font-display text-4xl text-primary md:text-6xl tracking-tight">
+            How we <span className="text-muted-foreground italic font-light">operate.</span>
           </h2>
         </Reveal>
 
         <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {process.map((p, i) => (
-            <Reveal key={p.n} delay={i * 120}>
-              <Tilt3D max={10} className="h-full">
-                <div className="glow-ring relative h-full rounded-3xl p-8" data-cursor="hover">
-                  <div className="font-mono text-5xl font-black text-transparent [-webkit-text-stroke:1px_var(--color-border)] opacity-50">
+            <Reveal key={p.n} delay={i * 100}>
+              <Tilt3D max={4} className="h-full">
+                <div className="relative h-full bg-white shadow-soft p-10 transition-all hover:shadow-elegant">
+                  <div className="font-mono text-4xl text-muted-foreground/30 font-light mb-8">
                     {p.n}
                   </div>
-                  <h3 className="mt-8 font-display text-2xl font-bold">{p.t}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
+                  <h3 className="font-display text-2xl text-primary">{p.t}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground font-light">{p.d}</p>
                 </div>
               </Tilt3D>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-32 text-center">
-          <Magnetic>
+        <div className="mt-40 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full gradient-brand px-8 py-4 font-bold text-primary-foreground transition-all hover:scale-105 hover:shadow-[0_0_30px_var(--color-primary)]"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-10 py-4 uppercase tracking-widest text-xs font-semibold text-white shadow-elegant transition-all hover:bg-accent hover:shadow-none"
             >
               Brief us on your project →
             </Link>
-          </Magnetic>
         </div>
       </section>
     </>

@@ -1,99 +1,111 @@
-import { useEffect, useRef, type ReactNode, type MouseEvent, type RefObject } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef, type ReactNode, type MouseEvent } from "react";
 
 type Props = {
   children: ReactNode;
   className?: string;
-  max?: number; // max tilt degrees
-  glare?: boolean;
+  max?: number;
   scale?: number;
 };
 
-export function Tilt3D({ children, className = "", max = 12, glare = true, scale = 1.02 }: Props) {
+export function Tilt3D({ children, className = "", max = 5, scale = 1.01 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const glareRef = useRef<HTMLDivElement>(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Very smooth, elegant physics
+  const springConfig = { damping: 40, stiffness: 200, mass: 0.5 };
+  const springX = useSpring(x, springConfig);
+  const springY = useSpring(y, springConfig);
+
+  const rotateX = useTransform(springY, [-0.5, 0.5], [max, -max]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-max, max]);
+  const scaleSpring = useSpring(1, springConfig);
 
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width;
-    const py = (e.clientY - r.top) / r.height;
-    const rx = (0.5 - py) * max * 2;
-    const ry = (px - 0.5) * max * 2;
-    el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`;
-    if (glareRef.current) {
-      glareRef.current.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, oklch(0.95 0.15 200 / 0.25), transparent 55%)`;
-      glareRef.current.style.opacity = "1";
-    }
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    x.set(px);
+    y.set(py);
+    scaleSpring.set(scale);
   };
 
   const onLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-    if (glareRef.current) glareRef.current.style.opacity = "0";
+    x.set(0);
+    y.set(0);
+    scaleSpring.set(1);
   };
 
   return (
-    <div
+    <motion.div
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{
+        rotateX,
+        rotateY,
+        scale: scaleSpring,
         transformStyle: "preserve-3d",
-        transition: "transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
       }}
       className={`relative will-change-transform ${className}`}
     >
-      <div style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>{children}</div>
-      {glare && (
-        <div
-          ref={glareRef}
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 mix-blend-screen"
-        />
-      )}
-    </div>
+      <div style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}>{children}</div>
+    </motion.div>
   );
 }
 
 export function Magnetic({
   children,
   className = "",
-  strength = 0.35,
+  strength = 0.2,
 }: {
   children: ReactNode;
   className?: string;
   strength?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springConfig = { damping: 15, stiffness: 150, mass: 0.5 };
+  const springX = useSpring(x, springConfig);
+  const springY = useSpring(y, springConfig);
+
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width / 2;
-    const y = e.clientY - r.top - r.height / 2;
-    el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+    const px = e.clientX - r.left - r.width / 2;
+    const py = e.clientY - r.top - r.height / 2;
+    x.set(px * strength);
+    y.set(py * strength);
   };
+
   const onLeave = () => {
-    if (ref.current) ref.current.style.transform = "translate(0,0)";
+    x.set(0);
+    y.set(0);
   };
+
   return (
-    <div
+    <motion.div
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={{ transition: "transform 400ms cubic-bezier(0.22, 1, 0.36, 1)" }}
+      style={{ x: springX, y: springY }}
       className={`inline-block will-change-transform ${className}`}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 
 export function Parallax({
   children,
-  speed = 0.15,
+  speed = 0.1,
   className = "",
 }: {
   children?: ReactNode;
@@ -101,29 +113,26 @@ export function Parallax({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  useScrollParallax(ref, speed);
-  return (
-    <div ref={ref} className={className} style={{ willChange: "transform" }}>
-      {children}
-    </div>
-  );
-}
+  const y = useMotionValue(0);
+  const springY = useSpring(y, { damping: 30, stiffness: 100, mass: 0.8 });
 
-function useScrollParallax(ref: RefObject<HTMLDivElement | null>, speed: number) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const el = ref.current;
     if (!el) return;
+
     let raf = 0;
     const update = () => {
       const r = el.getBoundingClientRect();
       const center = r.top + r.height / 2 - window.innerHeight / 2;
-      el.style.transform = `translate3d(0, ${-center * speed}px, 0)`;
+      y.set(-center * speed);
       raf = 0;
     };
+
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
+
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -132,5 +141,11 @@ function useScrollParallax(ref: RefObject<HTMLDivElement | null>, speed: number)
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [ref, speed]);
+  }, [speed, y]);
+
+  return (
+    <motion.div ref={ref} className={className} style={{ y: springY, willChange: "transform" }}>
+      {children}
+    </motion.div>
+  );
 }
