@@ -107,7 +107,7 @@ function Index() {
                   <Link to="/work" className="group block">
                     <Tilt3D max={3} scale={1.02}>
                       <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-white shadow-soft transition-all group-hover:shadow-elegant">
-                        <div className={`absolute inset-4 ${work.imgStyle} opacity-90 transition-transform duration-700 group-hover:scale-105`} />
+                        <img src={work.imgUrl} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" alt={work.name} />
                         <div className="absolute inset-0 flex items-center justify-center p-8 text-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white/40 backdrop-blur-sm">
                           <span className="font-display text-3xl font-bold text-primary">{work.name}</span>
                         </div>
@@ -176,21 +176,21 @@ const works = [
   {
     name: "Kanso",
     tag: "Brand Identity",
-    imgStyle: "bg-gradient-to-br from-gray-100 to-gray-300",
+    imgUrl: "/images/work1.png",
   },
   {
     name: "Aura",
     tag: "Web Experience",
-    imgStyle: "bg-gradient-to-br from-stone-100 to-stone-300",
+    imgUrl: "/images/work3.png",
   },
   {
     name: "Zenith",
     tag: "Native App",
-    imgStyle: "bg-gradient-to-br from-zinc-100 to-zinc-300",
+    imgUrl: "/images/work2.png",
   },
   {
     name: "Enso",
     tag: "Art Direction",
-    imgStyle: "bg-gradient-to-br from-slate-100 to-slate-300",
+    imgUrl: "/images/hero.png",
   },
 ];

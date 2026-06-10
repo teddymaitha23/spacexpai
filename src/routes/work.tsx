@@ -21,42 +21,42 @@ const projects = [
     tag: "Luxury Hunting",
     year: "2024",
     services: ["Brand", "Web", "App"],
-    imgStyle: "bg-gradient-to-br from-stone-200 to-stone-400",
+    imgUrl: "/images/work1.png",
   },
   {
     name: "Fabriks",
     tag: "Design Studio",
     year: "2024",
     services: ["Brand Identity", "Web"],
-    imgStyle: "bg-gradient-to-br from-neutral-200 to-neutral-400",
+    imgUrl: "/images/work2.png",
   },
   {
     name: "Iliad",
     tag: "Telecom Leader",
     year: "2023",
     services: ["Campaign", "Art Direction"],
-    imgStyle: "bg-gradient-to-br from-zinc-200 to-zinc-400",
+    imgUrl: "/images/hero.png",
   },
   {
     name: "Nova Health",
     tag: "AI Healthcare",
     year: "2023",
     services: ["Product Design", "Brand"],
-    imgStyle: "bg-gradient-to-br from-gray-200 to-gray-400",
+    imgUrl: "/images/work3.png",
   },
   {
     name: "Atlas Labs",
     tag: "Enterprise SaaS",
     year: "2022",
     services: ["Web", "Marketing"],
-    imgStyle: "bg-gradient-to-br from-slate-200 to-slate-400",
+    imgUrl: "/images/work1.png",
   },
   {
     name: "Lumière",
     tag: "Luxury Fashion",
     year: "2022",
     services: ["Brand", "Editorial"],
-    imgStyle: "bg-gradient-to-br from-zinc-200 to-stone-300",
+    imgUrl: "/images/work2.png",
   },
 ];
 
@@ -91,8 +91,10 @@ function WorkPage() {
                   <div
                     className={`relative flex aspect-[4/5] flex-col justify-between overflow-hidden bg-white shadow-soft transition-all duration-500 group-hover:shadow-elegant ${i % 2 !== 0 ? "md:mt-24" : ""}`}
                   >
-                    <div
-                      className={`absolute inset-0 ${p.imgStyle} transition-transform duration-700 group-hover:scale-105 opacity-80`}
+                    <img
+                      src={p.imgUrl}
+                      alt={p.name}
+                      className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105`}
                     />
 
                     <div className="relative z-10 flex items-start justify-between p-8">
