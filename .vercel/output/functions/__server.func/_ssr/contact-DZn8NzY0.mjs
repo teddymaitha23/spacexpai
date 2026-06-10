@@ -48,7 +48,7 @@ function ContactPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4", children: "Global HQ" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-display text-2xl text-primary font-light leading-relaxed", children: [
-            "New York City, NY",
+            "Nairobi, Kenya",
             /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
             "Earth, Milky Way"
           ] })

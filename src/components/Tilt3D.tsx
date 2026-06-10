@@ -3,9 +3,13 @@ import { useEffect, useRef, type ReactNode } from "react";
 export function Tilt3D({
   children,
   className = "",
+  max = 15,
+  scale = 1.0,
 }: {
   children: ReactNode;
   className?: string;
+  max?: number;
+  scale?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   
@@ -36,8 +40,8 @@ export function Tilt3D({
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       
-      targetX = -(y / rect.height) * 15; // Max 15 deg tilt
-      targetY = (x / rect.width) * 15;
+      targetX = -(y / rect.height) * max;
+      targetY = (x / rect.width) * max;
     };
 
     const handleMouseLeave = () => {

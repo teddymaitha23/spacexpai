@@ -2,6 +2,7 @@ import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { R as Reveal } from "./Reveal-KNND-Aem.mjs";
 import { P as Parallax, T as Tilt3D } from "./Tilt3D-CXV6RNZu.mjs";
+import { w as work1Img, b as work3Img, a as work2Img, h as heroImg } from "./work3-CvVqL_fr.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -14,6 +15,7 @@ import "../_libs/isbot.mjs";
 function Index() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative min-h-screen selection:bg-accent selection:text-white overflow-hidden bg-background", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-grid-light absolute inset-0 opacity-50" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 z-50 bg-[url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')] opacity-[0.03] mix-blend-overlay" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 right-0 h-[800px] w-[800px] rounded-full bg-secondary/50 blur-[120px] mix-blend-multiply" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-40 -left-40 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[120px] mix-blend-multiply" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 text-center", children: [
@@ -22,7 +24,7 @@ function Index() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs font-medium uppercase tracking-widest text-primary", children: "Tokyo × New York" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs font-medium uppercase tracking-widest text-primary", children: "Kenya × Nairobi" })
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 300, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-6xl font-medium tracking-tight text-primary sm:text-8xl lg:text-[10rem] leading-[0.9]", children: [
         "Design.",
@@ -53,7 +55,7 @@ function Index() {
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid gap-16 md:grid-cols-2", children: works.map((work, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Parallax, { speed: i % 2 === 0 ? 0.05 : 0.15, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 200, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/work", className: "group block", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Tilt3D, { max: 3, scale: 1.02, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-[4/5] overflow-hidden rounded-sm bg-white shadow-soft transition-all group-hover:shadow-elegant", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `absolute inset-4 ${work.imgStyle} opacity-90 transition-transform duration-700 group-hover:scale-105` }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: work.imgUrl, className: "absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105", alt: work.name }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center p-8 text-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-white/40 backdrop-blur-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-3xl font-bold text-primary", children: work.name }) })
         ] }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 flex items-center justify-between", children: [
@@ -80,19 +82,19 @@ function Marquee({
 const works = [{
   name: "Kanso",
   tag: "Brand Identity",
-  imgStyle: "bg-gradient-to-br from-gray-100 to-gray-300"
+  imgUrl: work1Img
 }, {
   name: "Aura",
   tag: "Web Experience",
-  imgStyle: "bg-gradient-to-br from-stone-100 to-stone-300"
+  imgUrl: work3Img
 }, {
   name: "Zenith",
   tag: "Native App",
-  imgStyle: "bg-gradient-to-br from-zinc-100 to-zinc-300"
+  imgUrl: work2Img
 }, {
   name: "Enso",
   tag: "Art Direction",
-  imgStyle: "bg-gradient-to-br from-slate-100 to-slate-300"
+  imgUrl: heroImg
 }];
 export {
   Index as component
