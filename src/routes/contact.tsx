@@ -104,7 +104,7 @@ function ContactPage() {
                   Global HQ
                 </p>
                 <p className="font-display text-2xl text-primary font-light leading-relaxed">
-                  New York City, NY
+                  Nairobi, Kenya
                   <br />
                   Earth, Milky Way
                 </p>

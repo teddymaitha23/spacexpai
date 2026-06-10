@@ -25,7 +25,7 @@ function Index() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
             </span>
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-primary">
-              Tokyo × New York
+              Nairobi, Kenya
             </span>
           </div>
         </Reveal>
