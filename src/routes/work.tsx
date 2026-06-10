@@ -5,6 +5,7 @@ import heroImg from "@/assets/images/hero.png";
 import work1Img from "@/assets/images/work1.png";
 import work2Img from "@/assets/images/work2.png";
 import work3Img from "@/assets/images/work3.png";
+import toptrackerImg from "@/assets/images/toptracker.png";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -25,7 +26,7 @@ const projects = [
     tag: "Luxury Hunting",
     year: "2024",
     services: ["Brand", "Web", "App"],
-    imgUrl: work1Img,
+    imgUrl: toptrackerImg,
   },
   {
     name: "Fabriks",
