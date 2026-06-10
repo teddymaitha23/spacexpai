@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import cert from "@/assets/cert-white.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -101,7 +100,9 @@ function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-32 text-center">
         <Reveal>
-          <img src={cert.url} alt="Certified Member" className="mx-auto h-12 w-auto opacity-80" />
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white/5 backdrop-blur">
+            <span className="font-display text-2xl font-bold text-primary">✦</span>
+          </div>
           <p className="mx-auto mt-8 max-w-3xl font-display text-3xl md:text-5xl">
             Together, we grow stronger communities and build <span className="text-gradient">meaningful connections.</span>
           </p>

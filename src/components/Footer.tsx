@@ -1,19 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import wordmark from "@/assets/wordmark.png.asset.json";
-import cert from "@/assets/cert-white.png.asset.json";
 
 export function Footer() {
   return (
-    <footer className="relative mt-32 overflow-hidden border-t border-border/60 bg-background">
-      <div className="bg-grid absolute inset-0 opacity-30" />
+    <footer className="relative mt-32 overflow-hidden border-t border-border bg-background">
+      <div className="bg-grid-dots absolute inset-0 opacity-20" />
+      <div className="absolute -bottom-64 -right-64 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[150px] mix-blend-screen" />
       <div className="relative mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <h3 className="font-display text-3xl text-gradient">Let's build the future.</h3>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
+            <h3 className="font-display text-4xl text-gradient">Let's build the future.</h3>
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
               A creative agency where imagination meets AI-augmented execution.
             </p>
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full gradient-cyan px-5 py-2 text-sm font-semibold text-primary-foreground">
+            <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full gradient-brand px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-[0_0_20px_var(--color-primary)]">
               Start a project →
             </Link>
           </div>
@@ -37,13 +36,11 @@ export function Footer() {
             </div>
           </div>
           <div className="flex flex-col items-start justify-between gap-6 md:items-end">
-            <img src={cert.url} alt="Space XP Certified Member" className="h-12 w-auto opacity-80" />
+            <div className="rounded-full border border-border bg-white/5 px-6 py-2 backdrop-blur">
+              <span className="font-display text-lg font-bold tracking-widest text-primary">SPACE XP</span>
+            </div>
             <p className="font-mono text-xs text-muted-foreground">© {new Date().getFullYear()} Space XP. All rights reserved.</p>
           </div>
-        </div>
-
-        <div className="mt-16 overflow-hidden">
-          <img src={wordmark.url} alt="Space XP" className="w-full opacity-10 invert" />
         </div>
       </div>
     </footer>
