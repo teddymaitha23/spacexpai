@@ -6,6 +6,10 @@ import work1Img from "@/assets/images/work1.png";
 import work2Img from "@/assets/images/work2.png";
 import work3Img from "@/assets/images/work3.png";
 import toptrackerImg from "@/assets/images/toptracker.png";
+import fabriksImg from "@/assets/images/fabriks.png";
+import iliadImg from "@/assets/images/iliad.png";
+import novahealthImg from "@/assets/images/novahealth.png";
+import atlaslabsImg from "@/assets/images/atlaslabs.png";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -33,28 +37,28 @@ const projects = [
     tag: "Design Studio",
     year: "2024",
     services: ["Brand Identity", "Web"],
-    imgUrl: work2Img,
+    imgUrl: fabriksImg,
   },
   {
     name: "Iliad",
     tag: "Telecom Leader",
     year: "2023",
     services: ["Campaign", "Art Direction"],
-    imgUrl: heroImg,
+    imgUrl: iliadImg,
   },
   {
     name: "Nova Health",
     tag: "AI Healthcare",
     year: "2023",
     services: ["Product Design", "Brand"],
-    imgUrl: work3Img,
+    imgUrl: novahealthImg,
   },
   {
     name: "Atlas Labs",
     tag: "Enterprise SaaS",
     year: "2022",
     services: ["Web", "Marketing"],
-    imgUrl: work1Img,
+    imgUrl: atlaslabsImg,
   },
   {
     name: "Lumière",
