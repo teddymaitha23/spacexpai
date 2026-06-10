@@ -8,8 +8,14 @@ export function Cursor() {
     const el = ref.current;
     if (!el) return;
     let raf = 0;
-    let x = 0, y = 0, tx = 0, ty = 0;
-    const move = (e: MouseEvent) => { tx = e.clientX; ty = e.clientY; };
+    let x = 0,
+      y = 0,
+      tx = 0,
+      ty = 0;
+    const move = (e: MouseEvent) => {
+      tx = e.clientX;
+      ty = e.clientY;
+    };
     const tick = () => {
       x += (tx - x) * 0.18;
       y += (ty - y) * 0.18;

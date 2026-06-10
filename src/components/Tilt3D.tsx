@@ -39,7 +39,10 @@ export function Tilt3D({ children, className = "", max = 12, glare = true, scale
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={{ transformStyle: "preserve-3d", transition: "transform 300ms cubic-bezier(0.22, 1, 0.36, 1)" }}
+      style={{
+        transformStyle: "preserve-3d",
+        transition: "transform 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
       className={`relative will-change-transform ${className}`}
     >
       <div style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>{children}</div>
@@ -54,7 +57,15 @@ export function Tilt3D({ children, className = "", max = 12, glare = true, scale
   );
 }
 
-export function Magnetic({ children, className = "", strength = 0.35 }: { children: ReactNode; className?: string; strength?: number }) {
+export function Magnetic({
+  children,
+  className = "",
+  strength = 0.35,
+}: {
+  children: ReactNode;
+  className?: string;
+  strength?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
@@ -80,7 +91,15 @@ export function Magnetic({ children, className = "", strength = 0.35 }: { childr
   );
 }
 
-export function Parallax({ children, speed = 0.15, className = "" }: { children?: ReactNode; speed?: number; className?: string }) {
+export function Parallax({
+  children,
+  speed = 0.15,
+  className = "",
+}: {
+  children?: ReactNode;
+  speed?: number;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   useScrollParallax(ref, speed);
   return (

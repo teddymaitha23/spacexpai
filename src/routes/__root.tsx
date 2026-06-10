@@ -81,17 +81,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Space XP — AI Creative Agency" },
-      { name: "description", content: "Space XP is an AI-powered creative agency crafting brand identities, websites, apps, and immersive digital experiences that last." },
+      {
+        name: "description",
+        content:
+          "Space XP is an AI-powered creative agency crafting brand identities, websites, apps, and immersive digital experiences that last.",
+      },
       { name: "author", content: "Space XP" },
       { property: "og:title", content: "Space XP — AI Creative Agency" },
-      { property: "og:description", content: "Space XP is an AI-powered creative agency crafting brand identities, websites, apps, and immersive digital experiences that last." },
+      {
+        property: "og:description",
+        content:
+          "Space XP is an AI-powered creative agency crafting brand identities, websites, apps, and immersive digital experiences that last.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@SpaceXP_Studio" },
       { name: "twitter:title", content: "Space XP — AI Creative Agency" },
-      { name: "twitter:description", content: "Space XP is an AI-powered creative agency crafting brand identities, websites, apps, and immersive digital experiences that last." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fed22a40-0502-474f-bf09-774b208ac7a3/id-preview-77ed4f6b--7d2f2fbd-e584-46c8-857d-33968fedcdfe.lovable.app-1780880275529.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fed22a40-0502-474f-bf09-774b208ac7a3/id-preview-77ed4f6b--7d2f2fbd-e584-46c8-857d-33968fedcdfe.lovable.app-1780880275529.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Space XP is an AI-powered creative agency crafting brand identities, websites, apps, and immersive digital experiences that last.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fed22a40-0502-474f-bf09-774b208ac7a3/id-preview-77ed4f6b--7d2f2fbd-e584-46c8-857d-33968fedcdfe.lovable.app-1780880275529.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fed22a40-0502-474f-bf09-774b208ac7a3/id-preview-77ed4f6b--7d2f2fbd-e584-46c8-857d-33968fedcdfe.lovable.app-1780880275529.png",
+      },
     ],
     links: [
       {
@@ -100,7 +120,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
