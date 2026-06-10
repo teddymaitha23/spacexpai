@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { Tilt3D, Parallax } from "@/components/Tilt3D";
+import heroImg from "@/assets/images/hero.png";
+import work1Img from "@/assets/images/work1.png";
+import work2Img from "@/assets/images/work2.png";
+import work3Img from "@/assets/images/work3.png";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -21,42 +25,42 @@ const projects = [
     tag: "Luxury Hunting",
     year: "2024",
     services: ["Brand", "Web", "App"],
-    imgUrl: "/images/work1.png",
+    imgUrl: work1Img,
   },
   {
     name: "Fabriks",
     tag: "Design Studio",
     year: "2024",
     services: ["Brand Identity", "Web"],
-    imgUrl: "/images/work2.png",
+    imgUrl: work2Img,
   },
   {
     name: "Iliad",
     tag: "Telecom Leader",
     year: "2023",
     services: ["Campaign", "Art Direction"],
-    imgUrl: "/images/hero.png",
+    imgUrl: heroImg,
   },
   {
     name: "Nova Health",
     tag: "AI Healthcare",
     year: "2023",
     services: ["Product Design", "Brand"],
-    imgUrl: "/images/work3.png",
+    imgUrl: work3Img,
   },
   {
     name: "Atlas Labs",
     tag: "Enterprise SaaS",
     year: "2022",
     services: ["Web", "Marketing"],
-    imgUrl: "/images/work1.png",
+    imgUrl: work1Img,
   },
   {
     name: "Lumière",
     tag: "Luxury Fashion",
     year: "2022",
     services: ["Brand", "Editorial"],
-    imgUrl: "/images/work2.png",
+    imgUrl: work2Img,
   },
 ];
 
@@ -65,6 +69,7 @@ function WorkPage() {
     <>
       <section className="relative flex min-h-[70vh] items-center overflow-hidden pt-20">
         <div className="bg-grid-dots-light absolute inset-0 opacity-40" />
+        <div className="pointer-events-none absolute inset-0 z-50 bg-[url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')] opacity-[0.03] mix-blend-overlay" />
 
         <div className="relative mx-auto w-full max-w-7xl px-8">
           <Reveal>

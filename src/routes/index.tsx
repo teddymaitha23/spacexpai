@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { Tilt3D, Parallax } from "@/components/Tilt3D";
+import heroImg from "@/assets/images/hero.png";
+import work1Img from "@/assets/images/work1.png";
+import work2Img from "@/assets/images/work2.png";
+import work3Img from "@/assets/images/work3.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -11,6 +15,7 @@ function Index() {
     <div className="relative min-h-screen selection:bg-accent selection:text-white overflow-hidden bg-background">
       {/* Background Elements */}
       <div className="bg-grid-light absolute inset-0 opacity-50" />
+      <div className="pointer-events-none absolute inset-0 z-50 bg-[url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')] opacity-[0.03] mix-blend-overlay" />
       
       {/* Soft Gradient Orbs */}
       <div className="absolute top-0 right-0 h-[800px] w-[800px] rounded-full bg-secondary/50 blur-[120px] mix-blend-multiply" />
@@ -25,7 +30,7 @@ function Index() {
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
             </span>
             <span className="font-mono text-xs font-medium uppercase tracking-widest text-primary">
-              Nairobi, Kenya
+              Kenya × Nairobi
             </span>
           </div>
         </Reveal>
@@ -176,21 +181,21 @@ const works = [
   {
     name: "Kanso",
     tag: "Brand Identity",
-    imgUrl: "/images/work1.png",
+    imgUrl: work1Img,
   },
   {
     name: "Aura",
     tag: "Web Experience",
-    imgUrl: "/images/work3.png",
+    imgUrl: work3Img,
   },
   {
     name: "Zenith",
     tag: "Native App",
-    imgUrl: "/images/work2.png",
+    imgUrl: work2Img,
   },
   {
     name: "Enso",
     tag: "Art Direction",
-    imgUrl: "/images/hero.png",
+    imgUrl: heroImg,
   },
 ];
